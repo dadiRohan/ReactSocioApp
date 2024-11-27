@@ -5,8 +5,9 @@ function App() {
     <>
       <div className="App">
         <header className="App-header">
-          Welcome To Application
-          <a href="/login" style={{color:"#ffffff"}}>Login Here</a>
+          
+          Welcome To Socio
+          <a className="text-3xl font-bold underline" href="/login" style={{color:"#ffffff"}}>Login Here</a>
         </header>
       </div>
     </>
