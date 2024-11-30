@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -6,7 +6,21 @@ const Login = () => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
-  const users = [{ username: "Test", password: "test" },{ username: "Rohan", password: "test" }];
+  // const users = [{ username: "Test", password: "test" },{ username: "Rohan", password: "test" }];
+
+  // based on API for users
+  const [userData,setUserData] = useState([]);
+  const fetchUsers = async () => {
+    const userList = await fetch("http://localhost:3000/profile",{
+      headers:{"cors":"no-cors"}
+    });
+    const userJson = await userList.json();
+    setUserData(userJson);
+  }
+  useEffect(()=>{
+    fetchUsers();
+  },[]);
+  const users = userData;
 
   const handleSubmit = (e) => {
     e.preventDefault();
