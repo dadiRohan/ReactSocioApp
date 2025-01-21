@@ -10,22 +10,24 @@ const Register = () => {
       e.preventDefault();
 
       const dataInput = {
-        'username' : username,
-        'email' : userEmail,
-        'password' : password
+        username : username,
+        email : userEmail,
+        password : password
       };
 
       console.log(dataInput);
 
-      fetch("http://localhost:3000/profile",{
-        headers:{"cors":"no-cors", "Content-Type":"application/json"},
-        method: 'post',
-        data: dataInput
-      }).then(res=>{
-        console.log("res status " + res.status);
-      }).then(error=>{
+      try {
+        fetch("http://localhost:3000/profile",{
+          headers:{"cors":"no-cors", "Content-Type":"application/json"},
+          method: 'POST',
+          body: JSON.stringify(dataInput),
+        }).then(res=>{
+          console.log("res status " + res.status);
+        });
+      } catch (error) {
         console.log("error "+error);
-      });
+      }
     };
 
     return (
