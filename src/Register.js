@@ -9,6 +9,11 @@ const Register = () => {
     const handleRegister = (e) => {
       e.preventDefault();
 
+      if((username === undefined) || (userEmail === undefined) || (password === undefined)){
+        alert("Kindly enter all Fields for Registration !");
+        return ;
+      }
+
       const dataInput = {
         username : username,
         email : userEmail,
@@ -24,6 +29,7 @@ const Register = () => {
           body: JSON.stringify(dataInput),
         }).then(res=>{
           console.log("res status " + res.status);
+          alert('Congratulations '+username+' you have been Successfully Registered !');
         });
       } catch (error) {
         console.log("error "+error);

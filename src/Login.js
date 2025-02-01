@@ -24,6 +24,11 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if((username === undefined) || (password === undefined)){
+      alert("Kindly enter all Fields for Login !");
+      return ;
+    }
     
     const account = users.find((user) => user.username === username);
     console.log(account);
@@ -38,6 +43,7 @@ const Login = () => {
       navigate("/dashboard");
     }else{
       console.log('Authentication Fail');
+      alert('You have entered wrong username or password !');
     }
   };
 
