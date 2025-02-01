@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 import Register from "./Register";
+import CreatePost from "./CreatePost";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,6 +16,7 @@ root.render(
         <Route path="login" element={<Login />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="register" element={<Register/>} />
+        <Route path="createpost" element={<CreatePost/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
